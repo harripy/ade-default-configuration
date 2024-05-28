@@ -236,6 +236,10 @@
     "transformationFormula" : "SYSUTCDATETIME()"
   }, {
     "transformationType" : "CURRENT_TS",
+    "dbmsProduct" : "POSTGRESQL",
+    "transformationFormula" : "CURRENT_TIMESTAMP"
+  }, {
+    "transformationType" : "CURRENT_TS",
     "dbmsProduct" : "REDSHIFT",
     "transformationFormula" : "SYSDATE"
   }, {
@@ -262,6 +266,10 @@
     "transformationType" : "DELETE_TS",
     "dbmsProduct" : "MS_SQL_DW",
     "transformationFormula" : "<#macro prefixHandler prefix><#if prefix?? && prefix?length &gt; 0>${prefix}.</#if></#macro>COALESCE(<@prefixHandler prefix/>[${attributeName}], SYSUTCDATETIME())"
+  }, {
+    "transformationType" : "DELETE_TS",
+    "dbmsProduct" : "POSTGRESQL",
+    "transformationFormula" : "<#macro prefixHandler prefix><#if prefix?? && prefix?length &gt; 0>${prefix}.</#if></#macro> NVL(<@prefixHandler prefix/>${attributeName}, CURRENT_TIMESTAMP)"
   }, {
     "transformationType" : "DELETE_TS",
     "dbmsProduct" : "REDSHIFT",
@@ -420,6 +428,10 @@
     "transformationFormula" : "'<loadname>'"
   }, {
     "transformationType" : "LOAD_NAME",
+    "dbmsProduct" : "POSTGRESQL",
+    "transformationFormula" : "'<loadname>'"
+  }, {
+    "transformationType" : "LOAD_NAME",
     "dbmsProduct" : "REDSHIFT",
     "transformationFormula" : "'<loadname>'"
   }, {
@@ -445,6 +457,10 @@
   }, {
     "transformationType" : "PACKAGE_VERSION",
     "dbmsProduct" : "MS_SQL_DW",
+    "transformationFormula" : "<packageversion>"
+  }, {
+    "transformationType" : "PACKAGE_VERSION",
+    "dbmsProduct" : "POSTGRESQL",
     "transformationFormula" : "<packageversion>"
   }, {
     "transformationType" : "PACKAGE_VERSION",
