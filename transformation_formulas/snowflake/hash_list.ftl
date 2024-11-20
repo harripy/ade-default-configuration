@@ -100,6 +100,6 @@
         <#list sourceAttributes as attribute><@castClouse attribute prefix sourceEntity use_positions ext_table_parquet_creation/><#if attribute_has_next> || '~' || </#if></#list>
     </@compress>
 </#macro>
-MD5(LISTAGG(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity use_positions=use_positions ext_table_parquet_creation=ext_table_parquet_creation/>, '~')
-    WITHIN GROUP (ORDER BY <@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity use_positions=use_positions ext_table_parquet_creation=ext_table_parquet_creation/> )
-    OVER (PARTITION BY <@sourceAttributeList sourceAttributes=keyAttributeList prefix=prefix sourceEntity=sourceEntity use_positions=use_positions ext_table_parquet_creation=ext_table_parquet_creation/> ))
+MD5(LISTAGG(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity!"" use_positions=use_positions!false ext_table_parquet_creation=ext_table_parquet_creation!false/>, '~')
+    WITHIN GROUP (ORDER BY <@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity!"" use_positions=use_positions!false ext_table_parquet_creation=ext_table_parquet_creation!false/> )
+    OVER (PARTITION BY <@sourceAttributeList sourceAttributes=keyAttributeList prefix=prefix sourceEntity=sourceEntity!"" use_positions=use_positions!false ext_table_parquet_creation=ext_table_parquet_creation!false/> ))

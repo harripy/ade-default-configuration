@@ -105,5 +105,5 @@ null
 <#elseif sourceAttributes?size == 1 >
 <@prefixHandler prefix/>${sourceAttributes[0].attributeName}
 <#else>
-<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity use_positions=use_positions ext_table_parquet_creation=ext_table_parquet_creation/>
+<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity!"" use_positions=use_positions!false ext_table_parquet_creation=ext_table_parquet_creation!false/>
 </#if>

@@ -101,5 +101,5 @@
     </@compress>
 </#macro>
 ROW_NUMBER() OVER (
-    PARTITION BY MD5(UPPER(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity use_positions=use_positions ext_table_parquet_creation=ext_table_parquet_creation/>))
-    ORDER BY UPPER(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity use_positions=use_positions ext_table_parquet_creation=ext_table_parquet_creation/>))
+    PARTITION BY MD5(UPPER(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity!"" use_positions=use_positions!false ext_table_parquet_creation=ext_table_parquet_creation!false/>))
+    ORDER BY UPPER(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity!"" use_positions=use_positions!false ext_table_parquet_creation=ext_table_parquet_creation!false/>))

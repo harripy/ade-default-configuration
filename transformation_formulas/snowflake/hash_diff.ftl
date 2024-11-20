@@ -100,4 +100,4 @@
         <#list sourceAttributes as attribute><@castClouse attribute prefix sourceEntity use_positions ext_table_parquet_creation/><#if attribute_has_next> || '~' || </#if></#list>
     </@compress>
 </#macro>
-MD5(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity use_positions=use_positions ext_table_parquet_creation=ext_table_parquet_creation/>)
+MD5(<@sourceAttributeList sourceAttributes=sourceAttributes prefix=prefix sourceEntity=sourceEntity!"" use_positions=use_positions!false ext_table_parquet_creation=ext_table_parquet_creation!false/>)
